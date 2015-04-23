@@ -4,18 +4,31 @@
 #include <thread>
 #include <string>
 
+#include <UnitTest.h>
+
 int main()
 {
-	while (true)
+	UnitTest::TestWithin<double>([=]
 	{
-		//Creates a stopwatch, passing a lambda that's activated upon the destruction of the timer allowing handling of the passed time.
-		Stopwatch stopwatch([=](double timePassed)
-		{
-			//When the while statement closes, output the time passed
-			std::cout << "Time taken: " << std::to_string(timePassed) << std::endl;
-		});
+		Stopwatch stopwatch;
 
 		//Perform function
-		std::this_thread::sleep_for(std::chrono::milliseconds(2));
-	}
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+		auto time = stopwatch.GetTime();
+
+		return time;
+	}, 1.0, 0.25);
+
+	UnitTest::TestWithin<double>([=]
+	{
+		Stopwatch stopwatch;
+
+		//Perform function
+		std::this_thread::sleep_for(std::chrono::seconds(3));
+
+		auto time = stopwatch.GetTime();
+
+		return time;
+	}, 3.0, 0.25);
 }

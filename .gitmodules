@@ -4,3 +4,6 @@
 [submodule "Example/PropertySheets"]
 	path = Example/PropertySheets
 	url = ../PropertySheets
+[submodule "UnitTest/PropertySheets"]
+	path = UnitTest/PropertySheets
+	url = ../PropertySheets
