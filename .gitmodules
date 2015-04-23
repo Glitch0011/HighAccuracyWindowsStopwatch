@@ -1,0 +1,6 @@
+[submodule "UnitTest/UnitTestFramework"]
+	path = UnitTest/UnitTestFramework
+	url = ../UnitTestFramework
+[submodule "Example/PropertySheets"]
+	path = Example/PropertySheets
+	url = ../PropertySheets
